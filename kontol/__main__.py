@@ -34,4 +34,4 @@ async def start_(client: Client, message: Message):
     )
 
 if __name__ == "__main__":
-    app.run()
+    bot.run()
