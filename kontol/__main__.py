@@ -1,6 +1,6 @@
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from config import *
+#from config import *
 
 api_id = 9128356
 api_hash = "cf219228092173e15047d3fb5a023cfc"
