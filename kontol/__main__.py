@@ -10,21 +10,21 @@ app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 
 
-@app.on_message()
+@app.on_message(filters.command("start"))
 def start_command(client, message):
-    if message.text == "/start":
-        # Membuat tombol-tombol untuk inline keyboard
-        button1 = InlineKeyboardButton("Lihat Produk", callback_data="view_products")
-        button2 = InlineKeyboardButton("Keranjang Belanja", callback_data="view_cart")
-        button3 = InlineKeyboardButton("Selesai Belanja", callback_data="checkout")
+    # Membuat tombol-tombol untuk inline keyboard
+    button1 = InlineKeyboardButton("Lihat Produk", callback_data="view_products")
+    button2 = InlineKeyboardButton("Keranjang Belanja", callback_data="view_cart")
+    button3 = InlineKeyboardButton("Selesai Belanja", callback_data="checkout")
 
-        # Membuat markup inline keyboard
-        inline_markup = InlineKeyboardMarkup(
-            [[button1], [button2], [button3]]
-        )
+    # Membuat markup inline keyboard
+    inline_markup = InlineKeyboardMarkup(
+        [[button1], [button2], [button3]]
+    )
 
-        # Mengirim pesan dengan inline keyboard
-        message.reply_text("Selamat datang di Telegram Shop. Silakan pilih tindakan di bawah ini:", reply_markup=inline_markup)
+    # Mengirim pesan dengan inline keyboard sebagai respons perintah /start
+    message.reply_text("Selamat datang di Telegram Shop. Silakan pilih tindakan di bawah ini:", reply_markup=inline_markup)
+
 
 
 @app.on_callback_query()
